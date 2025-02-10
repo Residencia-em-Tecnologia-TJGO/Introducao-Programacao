@@ -3,6 +3,8 @@
 - Residente: Samuel Victor Oliveira Lima
 - Prof(a): Nádia Felix Felipe da Silva
 
+## Variáveis de Ambiente
+
 ## 📆 Atividades de Aula
 - [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
 
