@@ -3,15 +3,18 @@
 - Residente: Samuel Victor Oliveira Lima
 - Prof(a): Nádia Felix Felipe da Silva
 
-## Variáveis de Ambiente
-
 ## 📆 Atividades de Aula
 - [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
 
-## ✅ Atividades de Projetos
+## ✅ Projetos
 
-- [Atividade I](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
-- [Atividade II](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
-- [Atividade III](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
-- [Atividade IV](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
-- [Atividade IV](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
+- [Projeto I](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
+- [Projeto II](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
+
+# 🎲 Base de Dados dos Projetos
+> ⚙️ Para <strong>configurar o banco de dados dos projetos</strong>, nas variáveis de ambiente (.env), substitua <strong>'NOME-DO-BANCO'</strong> por <strong>Projeto-X-db</strong> (onde X é o projeto vinculado)
+
+- 🍃 [Mongo](https://cloud.mongodb.com/v2/67aa609b61c70d27b71fcc76#/metrics/replicaSet/67aa6181f84ff70f87a7315d/explorer)
+
+> Pode ser necessário <strong>permissão</strong> para acesso da visualização do banco. Solicitar acesso para samuel.softdev@outook.com
+
