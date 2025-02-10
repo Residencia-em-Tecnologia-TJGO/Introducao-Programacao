@@ -17,5 +17,6 @@
 
 > ⚙️ Para <strong>configurar as bases de dados</strong>, nas variáveis de ambiente (.env) do projeto, o <strong>'NOME-DO-BANCO'</strong> deve ser preenchido por <strong>Projeto-X-db</strong> (onde X é o projeto vinculado)
 
-> Pode ser necessário <strong>permissão</strong> para acesso da visualização do banco. Solicitar acesso para samuel.softdev@outook.com
+> Pode ser necessário <strong>permissão</strong> para a permissão de acesso da visualização direta do banco. Solicitar acesso para samuel.softdev@outook.co
 
+> As variáveis de ambiente deste repositório dão acesso para base de dados de projetos com fins acadêmicos exclusivamente.
