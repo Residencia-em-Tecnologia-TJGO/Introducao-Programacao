@@ -19,4 +19,4 @@
 
 > Pode ser necessário <strong>permissão</strong> para a permissão de acesso da visualização direta do banco. Solicitar acesso para samuel.softdev@outook.com
 
-> As variáveis de ambiente deste repositório dão acesso para base de dados de projetos com fins acadêmicos exclusivamente.
+> As variáveis de ambiente e projetos deste repositório dão acesso para base de dados de projetos com fins acadêmicos exclusivamente.
