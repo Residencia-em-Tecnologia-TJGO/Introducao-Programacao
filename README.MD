@@ -1,6 +1,6 @@
-# 🏦 UFTJ / UFG - INTRODUÇÃO A PROGRAMAÇÃO
+# 🏦 UFTJ / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
 
-- Samuel Victor Oliveira Lima
+- Residente: Samuel Victor Oliveira Lima
 - Prof(a): Nádia Felix Felipe da Silva
 
 ## 📆 Atividades por Aula
