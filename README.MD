@@ -3,13 +3,13 @@
 - Residente: [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 - Prof(a): Nádia Felix Felipe da Silva
 
-## 📆 Atividades de Aula
-- [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
-
 ## ✅ Projetos
 
 - [Projeto I](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 - [Projeto II](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
+
+## 📆 Atividades de Aula
+- [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
 
 # 🎲 Base de Dados dos Projetos
 
