@@ -1,8 +1,12 @@
 # UFTJ / UFG - INTRODUÇÃO A PROGRAMAÇÃO
-Samuel Victor Oliveira Lima
-Prof(a): Nádia Felix Felipe da Silva
 
-## Atividades Gerais
+- Samuel Victor Oliveira Lima
+- Prof(a): Nádia Felix Felipe da Silva
+
+## Atividades de Aula
+- [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
+
+## Atividades Projetos
 
 - [Atividade I](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 - [Atividade II](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
