@@ -8,8 +8,9 @@
 - [Projeto I](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 - [Projeto II](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 
-## 📆 Atividades de Aula
-- [Exercicios por Data](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
+## 📆 Atividades e Exercícios
+- [Exercicios por Aula](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
+- [Exercicíos por Lista](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 
 # 🎲 Base de Dados dos Projetos
 
