@@ -1,4 +1,4 @@
-# 🏦 UFTJ / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
+# 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
 
 - Residente: [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 - Prof(a): Nádia Felix Felipe da Silva
