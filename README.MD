@@ -1,7 +1,7 @@
 # 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
+## Sumário do Repositório [main]
 
-- Residente: [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
-- Prof(a): Nádia Felix Felipe da Silva
+> <strong>Prof(a):</strong> Nádia Felix Felipe da Silva - <strong>Residente:</strong> [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 
 ## ✅ Projetos
 
