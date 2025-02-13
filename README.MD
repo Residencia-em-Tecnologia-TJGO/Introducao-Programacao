@@ -12,7 +12,9 @@
 <strong>Visão Geral</strong><br>
 >O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend. Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
 
-<br><strong>Modelagem de Dados</strong><br>
+### <br><strong>Modelagem de Dados</strong>
+
+> [Acessar modelagem](https://www.google.com)
 
 O sistema é composto por quatro modelos principais:
 
