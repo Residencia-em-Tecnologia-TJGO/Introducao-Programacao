@@ -1,17 +1,75 @@
 # 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
-# 🌱 Projeto 1
-> [Ver projeto](https://www.google.com)
+# 🌱 PROJETO I
+> [Acessar código fonte](https://www.google.com)
+> [Andamento do Projeto](https://www.google.com)
 > <strong>Prof(a):</strong> Nádia Felix Felipe da Silva - <strong>Aluno:</strong> [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 
 
 ## 📖 Documentação
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ligula nulla, commodo sit amet laoreet ac, rutrum quis erat. Nam sed porttitor augue. Nullam at ex ipsum. Maecenas sit amet pulvinar velit, in mattis odio. Curabitur tincidunt tincidunt convallis. Sed id arcu euismod, scelerisque nulla nec, sagittis arcu. Phasellus interdum sed est ultricies varius. Quisque sed dictum felis, at pellentesque purus. Phasellus tellus turpis, gravida a bibendum nec, sagittis non enim.
 
->Nulla id placerat risus. Pellentesque sodales tincidunt ante id finibus. Cras massa odio, varius non turpis convallis, scelerisque bibendum tellus. Donec non leo ac ante ultricies sollicitudin. Etiam in vulputate urna. Maecenas a sem rutrum, pulvinar lectus nec, ornare lectus. Fusce in ultricies metus. Proin a libero bibendum eros mollis interdum.
+> WebApp para criação de Contatos de Emergência e Execução de Ações
 
->Praesent sagittis lobortis molestie. Curabitur a sodales diam. Vivamus nec feugiat turpis. Quisque suscipit pulvinar magna vel rhoncus. Donec vitae turpis dictum, faucibus enim quis, dapibus odio. Vestibulum gravida, nulla sed pharetra viverra, est metus tempor dui, a congue mauris arcu a purus. Mauris ornare turpis erat, eget finibus felis vehicula quis. Mauris non consectetur tortor. Sed vehicula, dui at pretium laoreet, elit velit tristique neque, at semper purus mauris quis neque. Vestibulum justo tortor, dapibus sit amet sem sed, blandit lacinia lacus. Sed ornare dapibus ante et tempor. Vestibulum cursus purus sollicitudin ex vestibulum rutrum. Nullam a sem sit amet massa mollis viverra.
+<strong>Visão Geral</strong><br>
+>O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend. Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
 
->Curabitur et ex sit amet nibh facilisis varius ullamcorper sit amet sem. Nullam et varius leo. Pellentesque vitae purus non tellus viverra gravida ac et orci. Curabitur et fermentum metus. Maecenas vitae ante porta, facilisis urna sit amet, placerat odio. Sed tincidunt, felis in placerat gravida, libero ex consequat erat, at mollis augue justo at turpis. Etiam vitae urna eu nunc rhoncus bibendum ut sit amet metus. Proin lacinia at lacus nec vulputate.
+<br><strong>Modelagem de Dados</strong><br>
+
+O sistema é composto por quatro modelos principais:
+
+<strong>1. Usuário</strong>
+Armazena os dados do usuário, garantindo segurança com criptografia de senha e proteção dos dados sensíveis.
+
+Campos:
+nome: Nome do usuário.
+cpf: CPF do usuário (armazenado de forma segura).
+senha: Hash criptografado da senha.
+
+<strong>2. Contato de Emergência</strong>
+Representa os contatos de emergência cadastrados pelo usuário.
+
+Campos:
+usuarioId: Referência ao usuário dono do contato.
+nome: Nome do contato.
+telefone: Número de WhatsApp do contato.
+
+<strong>3. Ação</strong>
+Define uma ação de emergência iniciada pelo usuário.
+
+Campos:
+usuarioId: Referência ao usuário que criou a ação.
+tipo_acao: Tipo de emergência (ex.: "Emergência Saúde", "Roubo", "Sequestro").
+> Regra de Negócio: Cada usuário pode ter até 3 ações simultâneas.
+
+<strong>4. Log</strong>
+Registra todas as interações do usuário com o sistema.
+
+Campos:
+tipo_log: Breve descrição da finalidade do log
+usuarioId: Referência ao usuário.
+acaoId: Referência à ação (se aplicável).
+mensagem: Registro textual da ação executada.
+localizacao:  (Opcional) Latitude e longitude do usuário.
+dataHora: Data e hora da ocorrência.
+
+
+<strong>Fluxo de Funcionamento</strong>
+Cadastro do Usuário: O usuário cria uma conta informando nome, CPF e senha.
+Cadastro de Contatos: Ele adiciona contatos de emergência com nome e número de WhatsApp.
+Criação de Ação: O usuário inicia uma ação emergencial selecionando um dos tipos predefinidos.
+Envio da Notificação:
+O sistema envia uma mensagem automática via WhatsApp para os contatos cadastrados.
+O usuário pode optar por compartilhar sua localização junto com o alerta.
+Registro de Logs: Todas as ações são armazenadas para auditoria.
+
+## <strong>🧱 Tecnologias Utilizadas<strong>
+>Frontend: Quasar Framework (Vue 3)
+> Backend: Express.js
+> Banco de Dados: MongoDB
+> Criptografia: Bcrypt para senhas
+> Mensageria: Nodemailer e WhatsApp para envio de emails e mensagens
+> Geolocalização: navigator.geolocation no frontend
+> Possíveis Melhorias Futuras
+> Responsividade em diversos dispositivos
 
 
 ## ⌨️ Backend
