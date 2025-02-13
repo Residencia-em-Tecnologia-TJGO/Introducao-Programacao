@@ -1,7 +1,7 @@
 # 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
 # 🌱 PROJETO I
-> [Acessar código fonte](https://www.google.com)
-> [Andamento do Projeto](https://www.google.com)
+> [Acessar código fonte](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01)<br>
+> [Andamento do Projeto](https://github.com/orgs/Residencia-em-Tecnologia-TJGO/projects/1/views/1)<br>
 > <strong>Prof(a):</strong> Nádia Felix Felipe da Silva - <strong>Aluno:</strong> [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 
 
@@ -14,7 +14,7 @@
 
 ### <br><strong>Modelagem de Dados</strong>
 
-> [Acessar modelagem](https://www.google.com)
+> [Acessar modelagem](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/modelagem-de-dados-Projeto-01.png)
 
 O sistema é composto por quatro modelos principais:
 
@@ -25,6 +25,7 @@ Campos:
 nome: Nome do usuário.
 cpf: CPF do usuário (armazenado de forma segura).
 senha: Hash criptografado da senha.
+email: email do usuário
 
 <strong>2. Contato de Emergência</strong>
 Representa os contatos de emergência cadastrados pelo usuário.
@@ -33,6 +34,7 @@ Campos:
 usuarioId: Referência ao usuário dono do contato.
 nome: Nome do contato.
 telefone: Número de WhatsApp do contato.
+email: email do contato emergencial
 
 <strong>3. Ação</strong>
 Define uma ação de emergência iniciada pelo usuário.
@@ -76,13 +78,13 @@ Registro de Logs: Todas as ações são armazenadas para auditoria.
 
 ## ⌨️ Backend
 
-> [Acessar diretório](https://www.google.com)
-- [Como rodar o backend](https://www.google.com)
+> [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01/backend)
+- [Como rodar o backend](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/backend/README.md)
 
 ## 🖥️ Frontend
 
-> [Acessar diretório](https://www.google.com)
-- [Como rodar o frontend](https://www.google.com)
+> [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01/frontend)
+- [Como rodar o frontend](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/frontend/README.md)
 
 # 🎲 Base de Dados dos Projetos
 
