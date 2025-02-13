@@ -11,6 +11,9 @@
 - [Exercicios por Aula](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/exercicios-aula)
 - [Exercicíos por Lista](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao)
 
+
+## ❓ Observações
+
 > ⚙️ Para <strong>configurar as bases de dados</strong>, nas variáveis de ambiente (.env) do projeto, o <strong>'NOME-DO-BANCO'</strong> deve está preenchido por <strong>Projeto-X-db</strong> (onde X é o projeto vinculado)
 
 > Pode ser necessário <strong>permissão</strong> para o acesso da visualização direta ao banco de dados. Solicitar acesso para samuel.softdev@outook.com
