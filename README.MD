@@ -86,7 +86,7 @@ Registro de Logs: Todas as ações são armazenadas para auditoria.
 > [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01/frontend)
 - [Como rodar o frontend](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/frontend/README.md)
 
-# 🎲 Base de Dados dos Projetos
+# 🎲 Base de Dados
 
 - 🍃 [Mongo](https://cloud.mongodb.com/v2/67aa609b61c70d27b71fcc76#/metrics/replicaSet/67aa6181f84ff70f87a7315d/explorer)
 
