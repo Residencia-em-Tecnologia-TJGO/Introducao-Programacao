@@ -1,7 +1,7 @@
 # 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
 # 🌱 PROJETO I
-> [Acessar código fonte](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01)<br>
-> [Andamento do Projeto](https://github.com/orgs/Residencia-em-Tecnologia-TJGO/projects/1/views/1)<br>
+> [Board do Projeto](https://github.com/orgs/Residencia-em-Tecnologia-TJGO/projects/1/views/1)<br>
+> [Código Fonte](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01)<br>
 > <strong>Prof(a):</strong> Nádia Felix Felipe da Silva - <strong>Aluno:</strong> [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 
 
