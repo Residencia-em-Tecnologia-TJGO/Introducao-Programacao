@@ -8,9 +8,16 @@
                     </q-card-title>
                 </div>
                 <q-card-section v-if="formOptions.isEditMode" >
-                    <q-input class="" outlined v-model="user.name" maxlength="100" label="Nome Completo">
+                    <q-input class="" outlined v-model="user.nome" maxlength="100" label="Nome Completo">
                         <template v-slot:prepend>
                             <q-icon name="person" color="blue-14" />
+                        </template>
+                    </q-input>
+                </q-card-section>
+                <q-card-section v-if="formOptions.isEditMode" >
+                    <q-input class="" outlined v-model="user.telefone" mask="(##) #####-####" maxlength="15"  label="Telefone">
+                        <template v-slot:prepend>
+                            <q-icon name="phone" color="blue-14" />
                         </template>
                     </q-input>
                 </q-card-section>
@@ -29,19 +36,24 @@
                     </q-input>
                 </q-card-section>
                 <q-card-section>
-                    <q-input class="" outlined v-model="user.password" maxlength="20" label="Senha" type="password">
+                    <q-input class="" outlined v-model="user.senha" maxlength="20" label="Senha" :type="formOptions.showSenha ? 'text' : 'password'">
                         <template v-slot:prepend>
                             <q-icon name="lock" color="blue-14" />
                         </template>
                         <template v-slot:append>
-                            <q-icon :name="formOptions.showPassword ? 'visibility' : 'visibility_off'" @click="formOptions.showPassword = !formOptions.showPassword" />
+                            <q-icon :name="formOptions.showSenha ? 'visibility' : 'visibility_off'" @click="formOptions.showSenha = !formOptions.showSenha" />
                         </template>
                     </q-input>
                 </q-card-section>
-                <q-card-actions >
-                    <q-btn v-if="formOptions.isEditMode" class="w100 q-mx-sm" glossy label="Registrar-se" icon-right="person_add"  color="green-14" @click="formOptions.isEditMode = false" />
+                <q-card-actions v-if="!loading">
+                    <q-btn v-if="formOptions.isEditMode" @click="registrarUsuario()" class="w100 q-mx-sm" glossy label="Registrar-se" icon-right="person_add"  color="green"/>
                     <q-btn v-else class="w100 q-mx-sm" glossy label="Fazer Login" icon-right="login"  color="blue-14" @click="formOptions.isEditMode = false" />
                     <q-btn class="w100 q-mx-sm q-mt-md"  :label="formOptions.isEditMode ? 'Cancelar' : 'Criar Nova Conta'" flat  color="blue-14" @click="formOptions.isEditMode = !formOptions.isEditMode" />
+                </q-card-actions>
+                <q-card-actions v-else class="q-py-sm row items-center justify-center q-gutter-md">
+                    <q-spinner-dots color="blue-14" />
+                    <q-spinner-dots color="blue-14" />
+                    <q-spinner-dots color="blue-14" />
                 </q-card-actions>
             </q-card>
         </q-card-section>
@@ -49,13 +61,17 @@
 </template>
 
 <script setup>
+import { useQuasar } from 'quasar';
+import { api } from 'src/boot/axios';
 import { ref } from 'vue';
 
+const $q = useQuasar()
 const user = ref(
     {
-        name: '',
+        nome: '',
         email: '',
-        password: '',
+        telefone: '',
+        senha: '',
         cpf: ''
     }
 )
@@ -63,9 +79,43 @@ const user = ref(
 const formOptions = ref(
     {
         isEditMode: false,
-        showPassword: false
+        showSenha: false
     }
 )
+
+async function registrarUsuario() {
+    const userReq = {
+        nome: user.value.nome.trim().toLowerCase(),
+        email: user.value.email.trim().toLowerCase(),
+        senha: user.value.senha.trim().toLowerCase(),
+        cpf: user.value.cpf.trim(),
+        telefone: user.value.telefone.trim()
+    }
+    await api.post('/novo-usuario', userReq)
+        .then(response => {
+            $q.notify({
+                color: 'blue-14',
+                textColor: 'white',
+                icon: 'person_add',
+                message: 'Usuário registrado com sucesso!',
+                position: 'top'
+            })
+            localStorage.setItem('userLogado', JSON.stringify(response.data))
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000)
+        })
+        .catch(err => {
+            $q.notify({
+                color: 'blue    ',
+                textColor: 'white',
+                icon: 'error',
+                message: err.response.data.error,
+                position: 'top'
+            })
+            user.senha = ''
+        })
+}
 
 </script>
 

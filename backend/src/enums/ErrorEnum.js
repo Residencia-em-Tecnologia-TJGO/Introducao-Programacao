@@ -6,6 +6,7 @@ const ErrorEnum = {
     CPF_INVALID: 'CPF inválido',
     EMAIL_INVALID: 'Email inválido',
     MISSING_FIELDS: 'Campos obrigatórios não preenchidos',
+    EXISTING_USER: 'Usuário já cadastrado',
 }
 
 module.exports = ErrorEnum;

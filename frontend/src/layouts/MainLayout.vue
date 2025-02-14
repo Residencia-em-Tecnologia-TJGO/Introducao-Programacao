@@ -19,13 +19,16 @@
     </q-header>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" class="bg-grad-1">
-      <div v-if="userLogado">
-        <q-item v-for="option in rightDrawerOptions" :key="option.label">
-          <q-item-section>
-            <q-item-label>{{ option.label }}</q-item-label>
-          </q-item-section>
-          <q-item-section side>
-            <q-icon :name="option.icon" />
+      <div v-if="userLogado" class="q-mt-lg">
+        <div class="w100 q-py-md text-center text-black text-h6 bg-grey-2 q-mb-md rounded-borders">
+          {{ Utils.convertStringToFirstAndLast(userLogado.nome).toUpperCase() }}
+        </div>
+        <q-item v-for="option in rightDrawerOptions" clickable :key="option.label" @click="option.click()">
+          <q-item-section class="shadow-2 text-grey-14 rounded-borders q-pa-sm text-bold text-h6 bg-grey-2">
+            <div class="w100 row no-wrap justify-between items-center">
+              {{ option.label }}
+              <q-icon :name="option.icon" color="blue-14" size="md"/>
+            </div>
           </q-item-section>
         </q-item>
       </div>
@@ -60,17 +63,33 @@
 <script setup>
 import { ref } from 'vue'
 import ModalLoginComponent from 'src/components/ModalLoginComponent.vue'
+import Utils from 'app/utils'
+import { useRouter } from 'vue-router'
 
 // Variáveis reativas
 const userLogado = ref(JSON.parse(localStorage.getItem('userLogado')) || null)
 const rightDrawerOpen = ref(false)
 const modalLoginOpen = ref(false)
+const router = useRouter()
 
 const rightDrawerOptions = ref([
-  { label: 'Cadastrar', icon: 'alarm' },
-  { label: 'Option 2', icon: 'chat' },
-  { label: 'Option 3', icon: 'settings' }
+  { label: 'Ações', icon: 'chat', click: goToRoute('#') },
+  { label: 'Contatos', icon: 'contacts', click: goToRoute('#') },
+  { label: 'Sair', icon: 'logout', click:() =>{ logout()} }
 ])
+
+function goToRoute(route) {
+  router.push(route)
+}
+
+function logout() {
+  let confirm = window.confirm('Deseja realmente sair?')
+  if (!confirm) return
+  localStorage.removeItem('userLogado')
+  setTimeout(() => {
+    window.location.reload()
+  }, 500)
+}
 
 // Função para alternar o drawer
 const toggleRightDrawer = () => {
