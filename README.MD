@@ -7,10 +7,16 @@
 
 ## 📖 Documentação
 
-> WebApp para criação de Contatos de Emergência e Execução de Ações
 
 <strong>Visão Geral</strong><br>
->O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend. Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
+> <strong>WebApp para criação de Contatos de Emergência e Execução de Ações</strong><br>
+> O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend. Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
+
+<strong>Como Rodar</strong><br>
+> Após clonar o projeto, abra um terminal na raíz do diretório (onde contém o 🐳 <strong>docker-compose.yml</strong>) e digite o seguinte comando: <strong>docker-compose up --build</strong>. É necessário ter o [🐳 Docker](https://www.docker.com/) instalado na máquina.
+
+> <strong>Portas padrões</strong><br>
+> backend: localhost:3000 e frontend: localhost:9000
 
 ### <br><strong>Modelagem de Dados</strong>
 
