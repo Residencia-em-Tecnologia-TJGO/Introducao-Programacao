@@ -39,8 +39,8 @@
                     </q-input>
                 </q-card-section>
                 <q-card-actions >
-                    <q-btn v-if="formOptions.isEditMode" class="w100 q-mx-sm" glossy label="Registrar-se" icon-right="person_add"  color="primary" @click="formOptions.isEditMode = false" />
-                    <q-btn v-else class="w100 q-mx-sm" glossy label="Fazer Login" icon-right="login"  color="primary" @click="formOptions.isEditMode = false" />
+                    <q-btn v-if="formOptions.isEditMode" class="w100 q-mx-sm" glossy label="Registrar-se" icon-right="person_add"  color="green-14" @click="formOptions.isEditMode = false" />
+                    <q-btn v-else class="w100 q-mx-sm" glossy label="Fazer Login" icon-right="login"  color="blue-14" @click="formOptions.isEditMode = false" />
                     <q-btn class="w100 q-mx-sm q-mt-md"  :label="formOptions.isEditMode ? 'Cancelar' : 'Criar Nova Conta'" flat  color="blue-14" @click="formOptions.isEditMode = !formOptions.isEditMode" />
                 </q-card-actions>
             </q-card>
