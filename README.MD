@@ -45,7 +45,6 @@ O sistema é composto por quatro modelos principais:
 
 - usuarioId: Referência ao usuário que criou a ação.
 - tipo_acao: Tipo de emergência (ex.: "Emergência Saúde", "Roubo", "Sequestro").
-> Regra de Negócio: Cada usuário pode ter até 3 ações simultâneas.
 
 <strong>4. Log</strong><br>
 > Registra todas as interações do usuário com o sistema.
@@ -63,6 +62,7 @@ O sistema é composto por quatro modelos principais:
 - Cadastro do Usuário: O usuário cria uma conta informando nome, CPF e senha.<br>
 - Cadastro de Contatos: Ele adiciona contatos de emergência com nome e número de WhatsApp.<br>
 - Criação de Ação: O usuário inicia uma ação emergencial selecionando um dos tipos predefinidos.<br>
+- Regra de Negócio: Cada usuário pode ter até 3 ações simultâneas.
 
 <strong>Envio da Notificação:</strong><br>
 
