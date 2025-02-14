@@ -1,116 +1,79 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
+  <q-layout view="hHh lpR fFf">
+    <q-header bordered class="bg-grad-1 q-py-md text-white">
+      <q-toolbar class="">
         <q-toolbar-title>
-          Quasar App
+          Projeto 1
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn
+        v-if="!userLogado"
+        label="entrar" 
+        @click="modalLoginOpen = true" 
+        glossy
+        icon-right="login" 
+        class="q-mr-sm" 
+        color="green"
+      />
+        <q-btn v-else glossy color="blue-14" icon-right="menu" label="menu" @click="toggleRightDrawer" />
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+    <q-drawer show-if-above v-model="rightDrawerOpen" side="right" class="bg-grad-1">
+      <div v-if="userLogado">
+        <q-item v-for="option in rightDrawerOptions" :key="option.label">
+          <q-item-section>
+            <q-item-label>{{ option.label }}</q-item-label>
+          </q-item-section>
+          <q-item-section side>
+            <q-icon :name="option.icon" />
+          </q-item-section>
+        </q-item>
+      </div>
+      <div v-else class="q-mt-xl q-pt-lg">
+        <q-item class="">
+          <q-item-section>
+            <q-btn 
+              label="Faça login ou registre-se!" 
+              @click="modalLoginOpen = true" 
+              glossy 
+              icon-right="login" 
+              class="q-pa-lg rounded-borders" 
+              color="green"
+            />
+          </q-item-section>
+        </q-item>
+      </div>
     </q-drawer>
 
     <q-page-container>
+      <q-dialog v-model="modalLoginOpen" persistent>
+        <div class="w100 column rounded-borders bg-blue-14">
+          <ModalLoginComponent />
+          <q-btn label="Fechar" @click="modalLoginOpen = false" color="grey-3" flat class="bg-grad-1 q-py-sm" />
+        </div>
+      </q-dialog>
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+<script setup>
+import { ref } from 'vue'
+import ModalLoginComponent from 'src/components/ModalLoginComponent.vue'
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+// Variáveis reativas
+const userLogado = ref(JSON.parse(localStorage.getItem('userLogado')) || null)
+const rightDrawerOpen = ref(false)
+const modalLoginOpen = ref(false)
 
-export default defineComponent({
-  name: 'MainLayout',
+const rightDrawerOptions = ref([
+  { label: 'Cadastrar', icon: 'alarm' },
+  { label: 'Option 2', icon: 'chat' },
+  { label: 'Option 3', icon: 'settings' }
+])
 
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+// Função para alternar o drawer
+const toggleRightDrawer = () => {
+  rightDrawerOpen.value = !rightDrawerOpen.value
+}
 </script>
