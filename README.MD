@@ -24,55 +24,54 @@
 
 O sistema é composto por quatro modelos principais:
 
-<strong>1. Usuário</strong>
-Armazena os dados do usuário, garantindo segurança com criptografia de senha e proteção dos dados sensíveis.
+<strong>1. Usuário</strong><br>
+> Armazena os dados do usuário, garantindo segurança com criptografia de senha e proteção dos dados sensíveis.
 
-Campos:
-nome: Nome do usuário.
-cpf: CPF do usuário (armazenado de forma segura).
-senha: Hash criptografado da senha.
-email: email do usuário
+- nome: Nome do usuário.
+- cpf: CPF do usuário (armazenado de forma segura).
+- senha: Hash criptografado da senha.
+- email: email do usuário
 
-<strong>2. Contato de Emergência</strong>
-Representa os contatos de emergência cadastrados pelo usuário.
+<strong>2. Contato de Emergência</strong><br>
+> Representa os contatos de emergência cadastrados pelo usuário.
 
-Campos:
-usuarioId: Referência ao usuário dono do contato.
-nome: Nome do contato.
-telefone: Número de WhatsApp do contato.
-email: email do contato emergencial
+- usuarioId: Referência ao usuário dono do contato.
+- nome: Nome do contato.
+- telefone: Número de WhatsApp do contato.
+- email: email do contato emergencial
 
-<strong>3. Ação</strong>
-Define uma ação de emergência iniciada pelo usuário.
+<strong>3. Ação</strong><br>
+> Define uma ação de emergência iniciada pelo usuário.
 
-Campos:
-usuarioId: Referência ao usuário que criou a ação.
-tipo_acao: Tipo de emergência (ex.: "Emergência Saúde", "Roubo", "Sequestro").
+- usuarioId: Referência ao usuário que criou a ação.
+- tipo_acao: Tipo de emergência (ex.: "Emergência Saúde", "Roubo", "Sequestro").
 > Regra de Negócio: Cada usuário pode ter até 3 ações simultâneas.
 
-<strong>4. Log</strong>
-Registra todas as interações do usuário com o sistema.
+<strong>4. Log</strong><br>
+> Registra todas as interações do usuário com o sistema.
 
-Campos:
-tipo_log: Breve descrição da finalidade do log
-usuarioId: Referência ao usuário.
-acaoId: Referência à ação (se aplicável).
-mensagem: Registro textual da ação executada.
-localizacao:  (Opcional) Latitude e longitude do usuário.
-dataHora: Data e hora da ocorrência.
+- tipo_log: Breve descrição da finalidade do log
+- usuarioId: Referência ao usuário.
+- acaoId: Referência à ação (se aplicável).
+- mensagem: Registro textual da ação executada.
+- localizacao:  (Opcional) Latitude e longitude do usuário.
+- dataHora: Data e hora da ocorrência.
 
 
-<strong>Fluxo de Funcionamento</strong>
-Cadastro do Usuário: O usuário cria uma conta informando nome, CPF e senha.
-Cadastro de Contatos: Ele adiciona contatos de emergência com nome e número de WhatsApp.
-Criação de Ação: O usuário inicia uma ação emergencial selecionando um dos tipos predefinidos.
-Envio da Notificação:
-O sistema envia uma mensagem automática via WhatsApp para os contatos cadastrados.
-O usuário pode optar por compartilhar sua localização junto com o alerta.
-Registro de Logs: Todas as ações são armazenadas para auditoria.
+<strong>Fluxo de Funcionamento</strong><br>
 
-## <strong>🧱 Tecnologias Utilizadas<strong>
->Frontend: Quasar Framework (Vue 3)
+- Cadastro do Usuário: O usuário cria uma conta informando nome, CPF e senha.<br>
+- Cadastro de Contatos: Ele adiciona contatos de emergência com nome e número de WhatsApp.<br>
+- Criação de Ação: O usuário inicia uma ação emergencial selecionando um dos tipos predefinidos.<br>
+
+<strong>Envio da Notificação:</strong><br>
+
+- O sistema envia uma mensagem automática via WhatsApp para os contatos cadastrados.<br>
+- O usuário pode optar por compartilhar sua localização junto com o alerta.<br>
+- Registro de Logs: Todas as ações são armazenadas para auditoria.<br>
+
+## <strong>🧱 Tecnologias Utilizadas<strong><br>
+> Frontend: Quasar Framework (Vue 3)
 > Backend: Express.js
 > Banco de Dados: MongoDB
 > Criptografia: Bcrypt para senhas
