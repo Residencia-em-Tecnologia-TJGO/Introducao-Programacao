@@ -8,8 +8,15 @@ const UsuarioController = {
         } catch (error) {
             res.status(400).send({ error: error.message });
         }
+    },
+    login_usuario: async (req, res) => {
+        try {
+            const user = await UsuarioManager.loginUsuario(req.body);
+            res.status(200).send(user);
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
     }
-
 }
 
 module.exports = UsuarioController;

@@ -7,6 +7,9 @@ const ErrorEnum = {
     EMAIL_INVALID: 'Email inválido',
     MISSING_FIELDS: 'Campos obrigatórios não preenchidos',
     EXISTING_USER: 'Usuário já cadastrado',
+    USER_NOT_FOUND: 'Usuário não encontrado',
+    INVALID_TOKEN: 'Token inválido',
+    INVALID_CREDENTIALS: 'Credenciais inválidas',
 }
 
 module.exports = ErrorEnum;

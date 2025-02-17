@@ -27,6 +27,15 @@ const UsuarioManager = {
             throw new Error(ErrorEnum.EXISTING_USER + ` [${validationErrorMsg}]`);
         })
         return UsuarioResponse.createUsuarioResponse(novoUsuario);
+    },
+    loginUsuario: async (usuarioData) => {
+        if(!usuarioData.cpf || !usuarioData.senha ) throw new Error(ErrorEnum.MISSING_FIELDS);
+        const usuario = await UsuarioModel.findOne({ cpf: usuarioData.cpf })
+        if(!usuario) throw new Error(ErrorEnum.USER_NOT_FOUND);
+        if(!await Utils.comparePassword(usuarioData.senha, usuario.senha)) {
+            throw new Error(ErrorEnum.INVALID_CREDENTIALS   );
+        }
+        return UsuarioResponse.createUsuarioResponse(usuario);
     }
 }
 

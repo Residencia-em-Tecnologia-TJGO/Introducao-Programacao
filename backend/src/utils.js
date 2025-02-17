@@ -27,6 +27,10 @@ const Utils = {
         const hashedPassword = await bcrypt.hash(password, salt);
         return hashedPassword
     },
+    comparePassword: async (password, hashedPassword) => {
+        // essa função serve para comparar a senha do usuário com a senha encriptada
+        return await bcrypt.compare(password, hashedPassword);
+    },
     validaEmail: async (email) => {
         // essa função serve para verificar se o email é valido
         const emailRegex = /\S+@\S+\.\S+/;
