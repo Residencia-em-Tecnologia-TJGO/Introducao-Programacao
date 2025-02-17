@@ -26,7 +26,7 @@ const UsuarioManager = {
             const validationErrorMsg = Utils.getValidationErrorMessage(e);
             throw new Error(ErrorEnum.EXISTING_USER + ` [${validationErrorMsg}]`);
         })
-        return UsuarioResponse.createUsuarioResponse(novoUsuario);
+        return UsuarioResponse.createUsuarioResponse(noavoUsuario);
     },
     loginUsuario: async (usuarioData) => {
         if(!usuarioData.cpf || !usuarioData.senha ) throw new Error(ErrorEnum.MISSING_FIELDS);
@@ -36,6 +36,11 @@ const UsuarioManager = {
             throw new Error(ErrorEnum.INVALID_CREDENTIALS   );
         }
         return UsuarioResponse.createUsuarioResponse(usuario);
+    },
+    validarUsuario: async (usuario_id, token) => {
+        const usuario = await UsuarioModel.findById(usuario_id);
+        if(!usuario) throw new Error(ErrorEnum.USER_NOT_FOUND);
+        if(usuario.senha[0] + usuario.senha[1] !== token) throw new Error(ErrorEnum.INVALID_TOKEN);
     }
 }
 
