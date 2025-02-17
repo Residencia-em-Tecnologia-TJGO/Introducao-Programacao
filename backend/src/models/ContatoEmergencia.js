@@ -29,9 +29,6 @@ const contatoEmergenciaSchema = new Schema({
     },
 },
 )
-contatoEmergenciaSchema.index({ cpf: 1 }, { unique: true });
-contatoEmergenciaSchema.index({ email: 1 }, { unique: true });
-contatoEmergenciaSchema.index({ telefone: 1 }, { unique: true });
 
 const ContatoEmergencia = mongoose.model('ContatoEmergencia', contatoEmergenciaSchema)
 
