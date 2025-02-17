@@ -27,6 +27,10 @@ const Utils = {
         const hashedPassword = await bcrypt.hash(password, salt);
         return hashedPassword
     },
+    removeNotNumberChar: (string) => {
+        // essa função serve para remover caracteres não numéricos
+        return string.replace(/[^\d]/g, '').trim();
+    },
     comparePassword: async (password, hashedPassword) => {
         // essa função serve para comparar a senha do usuário com a senha encriptada
         return await bcrypt.compare(password, hashedPassword);

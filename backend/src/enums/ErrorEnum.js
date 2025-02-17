@@ -10,6 +10,7 @@ const ErrorEnum = {
     USER_NOT_FOUND: 'Usuário não encontrado',
     INVALID_TOKEN: 'Token inválido',
     INVALID_CREDENTIALS: 'Credenciais inválidas',
+    ACAO_NOT_FOUND: 'Ação não encontrada',
 }
 
 module.exports = ErrorEnum;
