@@ -8,35 +8,35 @@
                     </q-card-title>
                 </div>
                 <q-card-section v-if="formOptions.isEditMode" >
-                    <q-input class="" outlined v-model="user.nome" maxlength="100" label="Nome Completo">
+                    <q-input class="" outlined v-model="user.nome" maxlength="100" label="Nome Completo*">
                         <template v-slot:prepend>
                             <q-icon name="person" color="blue-14" />
                         </template>
                     </q-input>
                 </q-card-section>
                 <q-card-section v-if="formOptions.isEditMode" >
-                    <q-input class="" outlined v-model="user.telefone" mask="(##) #####-####" maxlength="15"  label="Telefone">
+                    <q-input class="" outlined v-model="user.telefone" mask="(##) #####-####" maxlength="15"  label="Telefone*">
                         <template v-slot:prepend>
                             <q-icon name="phone" color="blue-14" />
                         </template>
                     </q-input>
                 </q-card-section>
                 <q-card-section v-if="formOptions.isEditMode" >
-                    <q-input class="" outlined v-model="user.email" maxlength="100" label="E-mail">
+                    <q-input class="" outlined v-model="user.email" maxlength="100" label="E-mail*">
                         <template v-slot:prepend>
                             <q-icon name="email" color="blue-14" />
                         </template>
                     </q-input>
                 </q-card-section>
                 <q-card-section>
-                    <q-input v-model="user.cpf" mask="###.###.###-##" maxlength="14" reverse-fill-mask outlined label="CPF">
+                    <q-input v-model="user.cpf" mask="###.###.###-##" maxlength="14" reverse-fill-mask outlined label="CPF*">
                         <template v-slot:prepend>
                             <q-icon name="fingerprint" color="blue-14" />
                         </template>
                     </q-input>
                 </q-card-section>
                 <q-card-section>
-                    <q-input class="" outlined v-model="user.senha" maxlength="20" label="Senha" :type="formOptions.showSenha ? 'text' : 'password'">
+                    <q-input class="" outlined v-model="user.senha" maxlength="20" label="Senha*" :type="formOptions.showSenha ? 'text' : 'password'">
                         <template v-slot:prepend>
                             <q-icon name="lock" color="blue-14" />
                         </template>
@@ -47,7 +47,7 @@
                 </q-card-section>
                 <q-card-actions v-if="!loading">
                     <q-btn v-if="formOptions.isEditMode" @click="registrarUsuario()" class="w100 q-mx-sm" glossy label="Registrar-se" icon-right="person_add"  color="green"/>
-                    <q-btn v-else class="w100 q-mx-sm" glossy label="Fazer Login" icon-right="login"  color="blue-14" @click="formOptions.isEditMode = false" />
+                    <q-btn v-else class="w100 q-mx-sm" @click="logarUsuario()" glossy label="Fazer Login" icon-right="login"  color="blue-14" />
                     <q-btn class="w100 q-mx-sm q-mt-md"  :label="formOptions.isEditMode ? 'Cancelar' : 'Criar Nova Conta'" flat  color="blue-14" @click="formOptions.isEditMode = !formOptions.isEditMode" />
                 </q-card-actions>
                 <q-card-actions v-else class="q-py-sm row items-center justify-center q-gutter-md">
@@ -83,6 +83,37 @@ const formOptions = ref(
     }
 )
 
+async function logarUsuario() {
+    const userReq = {
+        cpf: user.value.cpf.trim().toLowerCase(),
+        senha: user.value.senha.trim().toLowerCase()
+    }
+    await api.post('/login-usuario', userReq)
+        .then(response => {
+            $q.notify({
+                color: 'blue-14',
+                textColor: 'white',
+                icon: 'login',
+                message: 'Usuário logado com sucesso!',
+                position: 'top'
+            })
+            localStorage.setItem('userLogado', JSON.stringify(response.data))
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000)
+        })
+        .catch(err => {
+            $q.notify({
+                color: 'orange-14',
+                textColor: 'white',
+                icon: 'error',
+                message: err.response.data.error,
+                position: 'top'
+            })
+            user.senha = ''
+        })
+}
+
 async function registrarUsuario() {
     const userReq = {
         nome: user.value.nome.trim().toLowerCase(),
@@ -107,7 +138,7 @@ async function registrarUsuario() {
         })
         .catch(err => {
             $q.notify({
-                color: 'blue    ',
+                color: 'orange-14',
                 textColor: 'white',
                 icon: 'error',
                 message: err.response.data.error,

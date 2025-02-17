@@ -20,12 +20,13 @@
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" class="bg-grad-1">
       <div v-if="userLogado" class="q-mt-lg">
-        <div class="w100 q-py-md text-center text-black text-h6 bg-grey-2 q-mb-md rounded-borders">
+        <div class="w100 q-py-md text-center text-white text-h6 q-mb-md rounded-borders">
+          <q-avatar color="blue-14" text-color="white" size="100px" icon="account_circle" class="q-mb-md"/><br>
           {{ Utils.convertStringToFirstAndLast(userLogado.nome).toUpperCase() }}
         </div>
         <q-item v-for="option in rightDrawerOptions" clickable :key="option.label" @click="option.click()">
           <q-item-section class="shadow-2 text-grey-14 rounded-borders q-pa-sm text-bold text-h6 bg-grey-2">
-            <div class="w100 row no-wrap justify-between items-center">
+            <div class="w100 row no-wrap justify-between items-center q-px-sm">
               {{ option.label }}
               <q-icon :name="option.icon" color="blue-14" size="md"/>
             </div>
@@ -73,9 +74,10 @@ const modalLoginOpen = ref(false)
 const router = useRouter()
 
 const rightDrawerOptions = ref([
+  { label: 'Página Inicial', icon: 'home', click: goToRoute('#') },
   { label: 'Ações', icon: 'chat', click: goToRoute('#') },
   { label: 'Contatos', icon: 'contacts', click: goToRoute('#') },
-  { label: 'Sair', icon: 'logout', click:() =>{ logout()} }
+  { label: 'Logout', icon: 'logout', click:() =>{ logout()} }
 ])
 
 function goToRoute(route) {
