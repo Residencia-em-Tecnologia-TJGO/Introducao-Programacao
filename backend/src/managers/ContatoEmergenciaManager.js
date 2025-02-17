@@ -2,6 +2,7 @@ const { ContatoEmergencia: ContatoEmergenciaModel } = require("../models/Contato
 const UsuarioManager = require("./UsuarioManager");
 const ErrorEnum = require("../enums/ErrorEnum");
 const SuccessEnum = require("../enums/SuccessEnum");
+const { get } = require("mongoose");
 
 const ContatoEmergenciaManager = {
     createContatoEmergencia: async (reqData) => {
@@ -24,6 +25,20 @@ const ContatoEmergenciaManager = {
                 throw new Error(err.message);
             });
         return SuccessEnum.CREATED_CONTATO_EMERGENCIA
+    },
+    getContatosEmergenciaPorUsuario: async (reqData) => {
+        if(!reqData || !reqData.id || !reqData.token) {
+            throw new Error(ErrorEnum.MISSING_FIELDS);
+        }
+        await UsuarioManager.validarUsuario(reqData.id, reqData.token)
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        const contatos = await ContatoEmergenciaModel.find({usuario: reqData.id})
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        return contatos;
     },
 }
 

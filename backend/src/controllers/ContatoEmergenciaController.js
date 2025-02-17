@@ -9,6 +9,18 @@ const ContatoEmergenciaController = {
             res.status(400).send({ error: error.message });
         }
     },
+    get_contatos_emergencia_por_usuario: async (req, res) => {
+        try {
+            const paramsData = {
+                id: req.query.usuario_id,
+                token: req.query.token
+            }
+            const response = await ContatoEmergenciaManager.getContatosEmergenciaPorUsuario(paramsData);
+            res.status(200).send(response);
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
+    }
 
 }
 

@@ -4,4 +4,7 @@ const ContatoEmergenciaController = require('../controllers/ContatoEmergenciaCon
 router.route('/novo-contato')
     .post((req, res) => ContatoEmergenciaController.create_contato_emergencia(req, res));
 
+router.route('/buscar-contatos')
+    .get((req, res) => ContatoEmergenciaController.get_contatos_emergencia_por_usuario(req, res));
+
 module.exports = router
