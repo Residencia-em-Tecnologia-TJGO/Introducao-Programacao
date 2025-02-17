@@ -40,6 +40,20 @@ const ContatoEmergenciaManager = {
             });
         return contatos;
     },
+    deleteContatoEmergencia: async (reqData) => {
+        if(!reqData || !reqData.id || !reqData.token || !reqData.contato_id) {
+            throw new Error(ErrorEnum.MISSING_FIELDS);
+        }
+        await UsuarioManager.validarUsuario(reqData.id, reqData.token)
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        await ContatoEmergenciaModel.deleteOne({_id: reqData.contato_id})
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        return SuccessEnum.DELETED_CONTATO_EMERGENCIA;
+    }
 }
 
 const UsingContatoEmergencia = {
