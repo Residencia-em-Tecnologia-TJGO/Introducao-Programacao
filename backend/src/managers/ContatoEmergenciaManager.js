@@ -12,8 +12,13 @@ const ContatoEmergenciaManager = {
             .catch((err) => {
                 throw new Error(err.message);
             });
-        
-        const contatoEmergencia = new ContatoEmergenciaModel(reqData);
+        const contatoObject = {
+            nome: reqData.contato.nome,
+            telefone: reqData.contato.telefone,
+            usuario: reqData.usuario.id,
+            email: reqData.contato.email || null,
+        }
+        const contatoEmergencia = new ContatoEmergenciaModel(contatoObject);
         await contatoEmergencia.save()
             .catch((err) => {
                 throw new Error(err.message);
