@@ -13,6 +13,11 @@ const AcaoManager = {
             .catch((err) => {
                 throw new Error(err.message);
             });
+        // REGRA DE NEGÓCIO, MAXIMO DE 3 AÇÕES POR USUÁRIO
+        const acaoLength = await AcaoModel.find({usuario: reqData.usuario.id}).countDocuments();
+        if(acaoLength >= 3) {
+            throw new Error(ErrorEnum.ACAO_LIMIT_REACHED);
+        }
         const acaoObject = {
             tipo_acao: reqData.tipo_acao,
             contatoEmergencia: reqData.contatoEmergencia || null,
@@ -63,7 +68,19 @@ const AcaoManager = {
                 open_blank_url: url
             };
         }
-    }
+    },
+    deleteAcao: async (reqData) => {
+        await UsuarioManager.validarUsuario(reqData.usuario.id, reqData.usuario.token)
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+        const acao = await AcaoModel.findById(reqData.acao_id);
+        if(!acao) {
+            throw new Error(ErrorEnum.ACAO_NOT_FOUND);
+        }
+        await acao.remove();
+        return SuccessEnum.DELETED_ACAO;
+    },
 }
 
 const UsingAcao = {

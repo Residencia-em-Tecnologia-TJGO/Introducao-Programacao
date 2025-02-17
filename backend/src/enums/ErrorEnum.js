@@ -11,6 +11,7 @@ const ErrorEnum = {
     INVALID_TOKEN: 'Token inválido',
     INVALID_CREDENTIALS: 'Credenciais inválidas',
     ACAO_NOT_FOUND: 'Ação não encontrada',
+    ACAO_LIMIT_REACHED: 'Você só pode ter no 3 ações simultâneas',
 }
 
 module.exports = ErrorEnum;
