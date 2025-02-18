@@ -6,8 +6,14 @@
       <img src="https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/modelagem-de-dados-Projeto-01.png?raw=true" width="100%" height="100%">
       <strong>Visão Geral</strong><br>
         O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend.
-        Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas rápidos pré cadastrados em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
+        <br>Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas rápidos pré cadastrados em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
         <br><br>
+      <strong>Como Usar</strong><br>
+        Configure um contato de emergência e crie uma nova ação rápida. Ao sair de casa, logue no aplicativo pelo seu dispositivo (o mesmo que usa o seu whatsapp pessoal), permita compartilhar sua localização (opcional) e deixe aberto uma aba na tela de Ações
+        com seu navegador de preferência, caso necessite acionar um alerta rápido
+        basta clicar no botão de ação rápida desejado e confirmar o envio. O contato de emergência cadastrado receberá uma mensagem via WhatsApp com a sua localização atual.
+        <br><br>
+
       <strong>Autor: </strong><a href="https://samuelvictorol.github.io/portfolio/" target="_blank">Samuel Victor</a>
     </div>
   </q-page>

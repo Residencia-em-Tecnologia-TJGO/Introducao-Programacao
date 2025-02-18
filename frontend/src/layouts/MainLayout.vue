@@ -87,7 +87,7 @@ const rightDrawerOptions = ref([
   { label: 'Página Inicial', icon: 'home', to: '/' },
   { label: 'Ações', icon: 'play_arrow', to: '/acoes' },
   { label: 'Contatos', icon: 'contacts', to: '/contatos' },
-  { label: 'Histórico', icon: 'history', to: '/acoes' },
+  { label: 'Histórico', icon: 'history', to: '/historico' },
 ])
 
 function goToRoute(route) {
@@ -97,6 +97,7 @@ function goToRoute(route) {
 function logout() {
   let confirm = window.confirm('Deseja realmente sair?')
   if (!confirm) return
+  router.push('/')
   localStorage.removeItem('userLogado')
   setTimeout(() => {
     window.location.reload()
