@@ -16,6 +16,18 @@ const UsuarioController = {
         } catch (error) {
             res.status(400).send({ error: error.message });
         }
+    },
+    get_acoes_executadas: async (req, res) => {
+        try {
+            const reqBody = {
+                    id: req.query.id,
+                    token: req.query.token
+            }
+            const acoes = await UsuarioManager.getAcoesExecutadas(reqBody);
+            res.status(200).send(acoes);
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
     }
 }
 

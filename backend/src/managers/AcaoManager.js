@@ -3,6 +3,8 @@ const ErrorEnum = require("../enums/ErrorEnum");
 const Utils = require("../utils");
 const UsuarioManager = require("./UsuarioManager");
 const SuccessEnum = require("../enums/SuccessEnum");
+const { Log: LogModel } = require("../models/Log");
+const TipoLogEnum = require("../enums/TipoLogEnum");
 
 const AcaoManager = {
     createAcao: async (reqData) => {
@@ -56,6 +58,13 @@ const AcaoManager = {
             const mapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
             const mensagem = encodeURIComponent(`${acao.tipo_acao} > Minha localização atual: ${mapsLink} - ${acao.mensagem}`);
             const url = `https://api.whatsapp.com/send?phone=55${contatoTelefone}&text=${mensagem}`;
+            const log = new LogModel({
+                usuario: reqData.usuario.id,
+                tipo_log: TipoLogEnum.ACAO_EXECUTADA,
+                acao: acao._id,
+                contatoEmergencia: acao.contatoEmergencia._id,
+            });
+            await log.save();
             return {
                 message: SuccessEnum.EXECUTED_ACAO,
                 open_blank_url: url
@@ -63,6 +72,13 @@ const AcaoManager = {
         } else {
             const mensagem = encodeURIComponent(acao.mensagem);
             const url = `https://api.whatsapp.com/send?phone=55${contatoTelefone}&text=${mensagem}`;
+            const log = new LogModel({
+                usuario: reqData.usuario.id,
+                tipo_log: TipoLogEnum.ACAO_EXECUTADA,
+                acao: acao._id,
+                contatoEmergencia: acao.contatoEmergencia._id,
+            });
+            await log.save();
             return {
                 message: SuccessEnum.EXECUTED_ACAO,
                 open_blank_url: url

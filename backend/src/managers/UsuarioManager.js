@@ -1,5 +1,7 @@
 const { Usuario: UsuarioModel } = require("../models/Usuario");
+const { Log: LogModel } = require("../models/Log");
 const ErrorEnum = require("../enums/ErrorEnum");
+const TipoLogEnum = require("../enums/TipoLogEnum");
 const Utils = require("../utils");
 
 const UsuarioManager = {
@@ -26,14 +28,21 @@ const UsuarioManager = {
             const validationErrorMsg = Utils.getValidationErrorMessage(e);
             throw new Error(ErrorEnum.EXISTING_USER + ` [${validationErrorMsg}]`);
         })
-        return UsuarioResponse.createUsuarioResponse(noavoUsuario);
+        const log = new LogModel({
+            usuario: novoUsuario._id,
+            tipo_log: TipoLogEnum.NOVO_USUARIO,
+        });
+        await log.save().catch((e) => {
+            console.log(e);
+        });
+        return UsuarioResponse.createUsuarioResponse(novoUsuario);
     },
     loginUsuario: async (usuarioData) => {
         if(!usuarioData.cpf || !usuarioData.senha ) throw new Error(ErrorEnum.MISSING_FIELDS);
         const usuario = await UsuarioModel.findOne({ cpf: usuarioData.cpf })
         if(!usuario) throw new Error(ErrorEnum.USER_NOT_FOUND);
         if(!await Utils.comparePassword(usuarioData.senha, usuario.senha)) {
-            throw new Error(ErrorEnum.INVALID_CREDENTIALS   );
+            throw new Error(ErrorEnum.INVALID_CREDENTIALS);
         }
         return UsuarioResponse.createUsuarioResponse(usuario);
     },
@@ -41,6 +50,21 @@ const UsuarioManager = {
         const usuario = await UsuarioModel.findById(usuario_id);
         if(!usuario) throw new Error(ErrorEnum.USER_NOT_FOUND);
         if(usuario.senha[0] + usuario.senha[1] !== token) throw new Error(ErrorEnum.INVALID_TOKEN);
+    },
+    getAcoesExecutadas: async (usuarioData) => {
+        if(!usuarioData.id || !usuarioData.token) {
+            throw new Error(ErrorEnum.MISSING_FIELDS);
+        }
+        await UsuarioManager.validarUsuario(usuarioData.id, usuarioData.token)
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        const acoes = await LogModel.find({usuario: usuarioData.id, tipo_log: TipoLogEnum.ACAO_EXECUTADA})
+            .populate("acao")
+            .catch((err) => {
+                throw new Error(err.message);
+            });
+        return acoes;
     }
 }
 

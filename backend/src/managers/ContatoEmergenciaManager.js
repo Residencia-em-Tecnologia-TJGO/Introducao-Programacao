@@ -3,6 +3,8 @@ const UsuarioManager = require("./UsuarioManager");
 const ErrorEnum = require("../enums/ErrorEnum");
 const SuccessEnum = require("../enums/SuccessEnum");
 const { get } = require("mongoose");
+const { Log: LogModel } = require("../models/Log");
+const TipoLogEnum = require("../enums/TipoLogEnum");
 
 const ContatoEmergenciaManager = {
     createContatoEmergencia: async (reqData) => {
@@ -24,6 +26,12 @@ const ContatoEmergenciaManager = {
             .catch((err) => {
                 throw new Error(err.message);
             });
+        const log = new LogModel({
+            usuario: reqData.usuario.id,
+            tipo_log: TipoLogEnum.NOVO_CONTATO,
+            contatoEmergencia: contatoEmergencia._id,
+        });
+        await log.save()
         return SuccessEnum.CREATED_CONTATO_EMERGENCIA
     },
     getContatosEmergenciaPorUsuario: async (reqData) => {
