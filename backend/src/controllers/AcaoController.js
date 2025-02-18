@@ -25,13 +25,25 @@ const AcaoController = {
             res.status(400).send({ error: error.message });
         }
     },
-    recuperar_acoes: async (req, res) => {
+    recuperar_acoes_executadas: async (req, res) => {
         try {
             const reqData = {
                 usuario: req.query.usuario_id,
                 token: req.query.token
             }
-            const response = await AcaoManager.recuperarAcoes(reqData);
+            const response = await AcaoManager.recuperarAcoesExecutadas(reqData);
+            res.status(200).send(response);
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
+    },
+    get_acoes_por_usuario: async (req, res) => {
+        try {
+            const reqData = {
+                usuario: req.query.usuario_id,
+                token: req.query.token
+            }
+            const response = await AcaoManager.getAcoesPorUsuario(reqData);
             res.status(200).send(response);
         } catch (error) {
             res.status(400).send({ error: error.message });
