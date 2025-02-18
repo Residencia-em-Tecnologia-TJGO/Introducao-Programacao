@@ -1,7 +1,8 @@
 # 🏦 TJGO / UFG - INTRODUÇÃO A PROGRAMAÇÃO 🖥️
 # 🌱 PROJETO I
-> [Board do Projeto](https://github.com/orgs/Residencia-em-Tecnologia-TJGO/projects/1/views/1)<br>
 > [Código Fonte](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01)<br>
+> [Board do Projeto](https://github.com/orgs/Residencia-em-Tecnologia-TJGO/projects/1/views/1)<br>
+> [Histórico de Commits](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/commits/projeto-01/)<br>
 > <strong>Prof(a):</strong> Nádia Felix Felipe da Silva - <strong>Aluno:</strong> [Samuel Victor Oliveira Lima](https://samuelvictorol.github.io/portfolio/)
 
 
@@ -13,7 +14,7 @@
 > O WebApp de Contatos de Emergência é uma plataforma desenvolvida com Quasar + Vue3 no frontend e Express.js + MongoDB no backend. Seu objetivo é permitir que os usuários cadastrem contatos de emergência e acionem alertas em situações críticas, enviando notificações via WhatsApp e, opcionalmente, compartilhando sua localização atual.
 
 <strong>Como Rodar</strong><br>
-> Após clonar o projeto, abra um terminal na raíz do diretório (onde contém o 🐳 <strong>docker-compose.yml</strong>) e digite o seguinte comando: <strong>docker-compose up --build</strong>. É necessário ter o [🐳 Docker](https://www.docker.com/) instalado na máquina.
+> Após clonar o projeto, abra um terminal na raíz do diretório (onde contém o 🐳 <strong>docker-compose.yml</strong>) e digite o seguinte comando: <strong>docker-compose up --build</strong>. É necessário ter o [🐳 Docker](https://www.docker.com/) instalado e em funcionamento na máquina.
 
 > <strong>Portas padrões</strong><br>
 > backend: localhost:3000 e frontend: localhost:9000
@@ -74,21 +75,22 @@ O sistema é composto por quatro modelos principais:
 > Frontend: Quasar Framework (Vue 3)
 > Backend: Express.js
 > Banco de Dados: MongoDB
-> Criptografia: Bcrypt para senhas
-> Mensageria: Nodemailer e WhatsApp para envio de emails e mensagens
+> Criptografia: Bcrypt
+> Mensageria: WhatsApp Api para envio de emails e mensagens
 > Geolocalização: navigator.geolocation no frontend
-> Possíveis Melhorias Futuras
-> Responsividade em diversos dispositivos
 
 
 ## ⌨️ Backend
 
-> [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01/backend)
-- [Como rodar o backend](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/backend/README.md)
+> [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/)
+
+- <strong>Como Rodar</strong>
+> versão node: 18.13.0<br>npm install > npm run dev
 
 ## 🖥️ Frontend
 
 > [Acessar diretório](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/tree/projeto-01/frontend)
+
 - [Como rodar o frontend](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/frontend/README.md)
 
 # 🎲 Base de Dados
