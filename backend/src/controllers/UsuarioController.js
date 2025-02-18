@@ -20,7 +20,7 @@ const UsuarioController = {
     get_acoes_executadas: async (req, res) => {
         try {
             const reqBody = {
-                    id: req.query.id,
+                    id: req.query.usuario_id,
                     token: req.query.token
             }
             const acoes = await UsuarioManager.getAcoesExecutadas(reqBody);

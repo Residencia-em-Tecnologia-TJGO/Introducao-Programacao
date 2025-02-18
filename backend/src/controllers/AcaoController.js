@@ -24,6 +24,18 @@ const AcaoController = {
         } catch (error) {
             res.status(400).send({ error: error.message });
         }
+    },
+    recuperar_acoes: async (req, res) => {
+        try {
+            const reqData = {
+                usuario: req.query.usuario_id,
+                token: req.query.token
+            }
+            const response = await AcaoManager.recuperarAcoes(reqData);
+            res.status(200).send(response);
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
     }
 }
 

@@ -60,11 +60,11 @@ const UsuarioManager = {
                 throw new Error(err.message);
             });
         const acoes = await LogModel.find({usuario: usuarioData.id, tipo_log: TipoLogEnum.ACAO_EXECUTADA})
-            .populate("acao")
+            .populate('usuario')
             .catch((err) => {
                 throw new Error(err.message);
             });
-        return acoes;
+        return UsuarioResponse.getAcoesExecutadasResponse(acoes);
     }
 }
 
@@ -104,6 +104,15 @@ const UsuarioResponse = {
             cpf: usuario.cpf,
             token: usuario.senha[0] + usuario.senha[1]
         }
+    },
+    getAcoesExecutadasResponse: (acoes) => {
+        return acoes.map((acao) => {
+            return {
+                id: acao._id,
+                acao: acao.tipo_log + " por " + acao.usuario.nome,
+                dataHora: Utils.formatDate(acao.dataHora)
+            }
+        });
     }
 }
 

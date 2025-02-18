@@ -51,6 +51,11 @@ const Utils = {
         // Separa os campos restantes e devolve apenas os nomes dos campos
         return cleanMessage.split(',').map((msg) => msg.split(':')[0]).join(', ').trim();
     },
+    formatDate: (date) => {
+        // uma função que formata a data para dd/mm/aaaa hh:mm e ajuste o horario para o horario de brasilia
+        const options = { timeZone: 'America/Sao_Paulo', hour12: false };
+        return new Date(date).toLocaleString('pt-BR', options);
+    }
 }
 
 module.exports = Utils;

@@ -97,6 +97,14 @@ const AcaoManager = {
         await acao.remove();
         return SuccessEnum.DELETED_ACAO;
     },
+    recuperarAcoes: async (reqData) => {
+        await UsuarioManager.validarUsuario(reqData.usuario, reqData.token)
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+        const acoes = await AcaoModel.find({usuario: reqData.usuario.id});
+        return acoes;
+    }
 }
 
 const UsingAcao = {

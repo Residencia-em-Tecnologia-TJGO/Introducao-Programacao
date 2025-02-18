@@ -6,6 +6,6 @@ router.route('/novo-usuario')
 router.route('/login-usuario')
     .post((req, res) => UsuarioController.login_usuario(req, res));
 router.route('/acoes-executadas')   
-    .get((req, res) => UsuarioController.acoes_executadas(req, res));
+    .get((req, res) => UsuarioController.get_acoes_executadas(req, res));
 
 module.exports = router
