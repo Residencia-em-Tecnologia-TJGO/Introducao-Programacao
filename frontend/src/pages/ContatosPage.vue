@@ -3,31 +3,33 @@
         <div>
         <h1 class="text-h3">Contatos</h1>
         </div>
-        <q-btn
-            color="primary"
-            label="Criar Contato"
-            icon-right="add" glossy
-            @click="dialogCriarContato = true"
-            class="q-mb-md"
-            />
-        <q-list bordered class="rounded-borders shadow-1">
-            <q-item v-for="contato in contatos" :key="contato._id" class="q-py-md">
-                <q-item-section>
-                    <q-item-label class="text-bold q-pb-sm text-h6">🪪 {{ contato.nome }}</q-item-label>
-                    <q-item-label v-if="contato.email" caption>✉️ {{ contato.email }}</q-item-label>
-                    <q-item-label caption>📲 {{ contato.telefone }}</q-item-label>
+        <div class="w100 column items-center justify-center">
+            <q-btn
+                color="primary"
+                label="Criar Contato"
+                icon-right="add" glossy
+                @click="dialogCriarContato = true"
+                class="q-mb-md"
+                />
+            <q-list bordered class="rounded-borders shadow-1">
+                <q-item v-for="contato in contatos" :key="contato._id" class="q-py-md">
+                    <q-item-section>
+                        <q-item-label class="text-bold q-pb-sm text-h6">🪪 {{ contato.nome }}</q-item-label>
+                        <q-item-label v-if="contato.email" caption>✉️ {{ contato.email }}</q-item-label>
+                        <q-item-label caption>📲 {{ contato.telefone }}</q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                        <q-btn
+                            @click="removerContato(contato._id, contato.nome)"
+                            color="red-14"
+                            icon-right="delete"
+                            glossy
+                            class="q-pa-sm"
+                            />
                 </q-item-section>
-                <q-item-section side>
-                    <q-btn
-                        @click="removerContato(contato._id, contato.nome)"
-                        color="red-14"
-                        icon-right="delete"
-                        glossy
-                        class="q-pa-sm"
-                        />
-            </q-item-section>
-        </q-item>
-        </q-list>
+            </q-item>
+            </q-list>
+        </div>
         <q-dialog v-model="dialogCriarContato">
             <q-card>
                 <q-card-section>

@@ -4,7 +4,8 @@
         <h1 class="text-h3">Ações</h1>
         </div>
         <q-checkbox label="Compartilhar Localização 🗺️" v-model="permitirLoc" @update:model-value="getLatitudeLongitude()" color="green" class="text-bold q-mb-md"></q-checkbox>
-        <q-btn
+        <div class="w100 column justify-center items-center">
+            <q-btn
             color="primary"
             label="Criar Ação"
             icon-right="add" glossy
@@ -12,7 +13,7 @@
             class="q-mb-md"
             />
         <q-list bordered class="rounded-borders shadow-1">
-            <q-item v-for="acao in acoes" :key="acao._id" class="q-py-xl">
+            <q-item v-for="acao in acoes" :key="acao._id" class="q-py-md">
                 <q-item-section>
                     <q-item-label class="text-bold q-pb-sm text-h6">
                         <q-btn @click="removerAcao(acao._id)" icon="delete" size="sm" color="red-14" class="q-mb-md"></q-btn><br>
@@ -21,6 +22,7 @@
                 </q-item-section>
                 <q-item-section side>
                     <q-btn
+                        @click="executarAcao(acao._id)"
                         color="green-14"
                         label="Executar"
                         icon-right="play_arrow"
@@ -30,6 +32,7 @@
             </q-item-section>
         </q-item>
         </q-list>
+        </div>
         <q-dialog v-model="dialogCriarAcao">
             <q-card>
                 <q-card-section>
@@ -115,6 +118,39 @@ function getLatitudeLongitude() {
         }
     }
 }
+
+async function executarAcao(acaoId) {
+        const reqData = {
+            usuario: {
+                id: Utils.getInfoUsuarioREQ().id,
+                token: Utils.getInfoUsuarioREQ().token
+            },
+            acao_id: acaoId,
+            permitirLoc: permitirLoc.value,
+            latitude: coordenadas.value.latitude,
+            longitude: coordenadas.value.longitude
+        }
+        await api.post('/executar-acao', reqData)
+            .then(response => {
+                $q.notify({
+                    color: 'positive',
+                    position: 'top',
+                    message: response.data.message,
+                    icon: 'check'
+                });
+                window.open(response.data.open_blank_url, '_blank')
+            })
+            .catch(error => {
+                console.log(error);
+                $q.notify({
+                    color: 'negative',
+                    position: 'top',
+                    message: error.response.data.error,
+                    icon: 'report_problem'
+                });
+            });
+}
+
 async function getContatos() {
     const userLogado = Utils.getInfoUsuarioREQ();
     const url = '?' + 'usuario_id=' + userLogado.id + '&token=' + userLogado.token;
