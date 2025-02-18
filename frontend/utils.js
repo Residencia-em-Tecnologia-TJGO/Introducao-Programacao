@@ -9,6 +9,13 @@ const Utils = {
             return bigString;
         }
     },
+    getInfoUsuarioREQ: () => {
+        const userLogado = JSON.parse(localStorage.getItem('userLogado'));
+        return {
+            id: userLogado.id,
+            token: userLogado.token
+        }
+    }
 }
 
 export default Utils;

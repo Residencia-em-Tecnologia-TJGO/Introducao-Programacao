@@ -19,12 +19,13 @@
     </q-header>
 
     <q-drawer show-if-above v-model="rightDrawerOpen" side="right" class="bg-grad-1">
+      <!-- menu caso usuario esteja logado -->
       <div v-if="userLogado" class="q-mt-lg">
         <div class="w100 q-py-md text-center text-white text-h6 q-mb-md rounded-borders">
           <q-avatar color="blue-14" text-color="white" size="100px" icon="account_circle" class="q-mb-md"/><br>
           {{ Utils.convertStringToFirstAndLast(userLogado.nome).toUpperCase() }}
         </div>
-        <q-item v-for="option in rightDrawerOptions" clickable :key="option.label" @click="option.click()">
+        <q-item v-for="option in rightDrawerOptions" clickable :key="option.label" :to="option.to" @click="goToRoute(option.to)">
           <q-item-section class="shadow-2 text-grey-14 rounded-borders q-pa-sm text-bold text-h6 bg-grey-2">
             <div class="w100 row no-wrap justify-between items-center q-px-sm">
               {{ option.label }}
@@ -32,7 +33,16 @@
             </div>
           </q-item-section>
         </q-item>
+        <q-item clickable @click="logout">
+          <q-item-section class="shadow-2 text-grey-14 rounded-borders q-pa-sm text-bold text-h6 bg-grey-2">
+            <div class="w100 row no-wrap justify-between items-center q-px-sm">
+              Sair
+              <q-icon name="logout" color="red-14" size="md"/>
+            </div>
+          </q-item-section>
+        </q-item>
       </div>
+      <!-- //////////////////////// -->
       <div v-else class="q-mt-xl q-pt-lg">
         <q-item class="">
           <q-item-section>
@@ -74,10 +84,9 @@ const modalLoginOpen = ref(false)
 const router = useRouter()
 
 const rightDrawerOptions = ref([
-  { label: 'Página Inicial', icon: 'home', click: goToRoute('#') },
-  { label: 'Ações', icon: 'chat', click: goToRoute('#') },
-  { label: 'Contatos', icon: 'contacts', click: goToRoute('#') },
-  { label: 'Logout', icon: 'logout', click:() =>{ logout()} }
+  { label: 'Página Inicial', icon: 'home', to: '/' },
+  { label: 'Ações', icon: 'chat', to: '#' },
+  { label: 'Contatos', icon: 'contacts', to: '/contatos' },
 ])
 
 function goToRoute(route) {
