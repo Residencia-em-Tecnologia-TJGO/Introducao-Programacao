@@ -21,7 +21,7 @@
 ### <br><strong>Modelagem de Dados</strong>
 
 > [Acessar modelagem](https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/modelagem-de-dados-Projeto-01.png)
-
+<img src="https://github.com/Residencia-em-Tecnologia-TJGO/Introducao-Programacao/blob/projeto-01/modelagem-de-dados-Projeto-01.png?raw=true" width="100%" height="100%">
 O sistema é composto por quatro modelos principais:
 
 <strong>1. Usuário</strong><br>
