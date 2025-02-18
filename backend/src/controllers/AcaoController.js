@@ -19,7 +19,14 @@ const AcaoController = {
     },
     delete_acao: async (req, res) => {
         try {
-            const response = await AcaoManager.deleteAcao(req.body);
+            const reqData = {
+                usuario: {
+                    id: req.query.usuario_id,
+                    token: req.query.token
+                },
+                acao_id: req.query.acao_id
+            }
+            const response = await AcaoManager.deleteAcao(reqData);
             res.status(200).send(response);
         } catch (error) {
             res.status(400).send({ error: error.message });
