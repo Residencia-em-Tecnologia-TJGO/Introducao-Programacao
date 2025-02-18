@@ -85,8 +85,9 @@ const router = useRouter()
 
 const rightDrawerOptions = ref([
   { label: 'Página Inicial', icon: 'home', to: '/' },
-  { label: 'Ações', icon: 'chat', to: '#' },
+  { label: 'Ações', icon: 'play_arrow', to: '/acoes' },
   { label: 'Contatos', icon: 'contacts', to: '/contatos' },
+  { label: 'Histórico', icon: 'history', to: '/acoes' },
 ])
 
 function goToRoute(route) {

@@ -11,7 +11,7 @@
             class="q-mb-md"
             />
         <q-list bordered class="rounded-borders shadow-1">
-            <q-item v-for="contato in contatos" :key="contato.id" class="q-py-md">
+            <q-item v-for="contato in contatos" :key="contato._id" class="q-py-md">
                 <q-item-section>
                     <q-item-label class="text-bold q-pb-sm text-h6">🪪 {{ contato.nome }}</q-item-label>
                     <q-item-label v-if="contato.email" caption>✉️ {{ contato.email }}</q-item-label>

@@ -4,4 +4,4 @@ const TipoAcaoEnum = [
     { value: 2, label: '🔔 Alerta Simples'}
 ]
 
-module.exports = TipoAcaoEnum;
+export default TipoAcaoEnum;
